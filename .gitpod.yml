@@ -1,0 +1,14 @@
+  image:
+    file: Dockerfile
+  
+  tasks:
+    - name: "Setup Laravel"
+      init: |
+        cd my-laravel-app
+        composer install
+        npm install
+      command: php artisan serve --host=0.0.0.0 --port=7777
+
+  ports:
+    - port: 7777
+      onOpen: open-preview
